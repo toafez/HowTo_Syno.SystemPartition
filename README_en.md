@@ -9,7 +9,7 @@ The following guide describes how to analyse and clean up a overfilled **System 
 ## Introduction
 Physical data storage devices such as hard disk drives (HDD), solid state drives (SSD), NVM Express (NVMe), etc., commonly referred to as hard disk drives, usually have one or more partitions for serving and storing data. 
 
-In a Synology NAS, all the internal hard drives are basically divided into three partitions, namely a **System Partition**, a **SWAP Partition**, and a **Data Partition**. The system and SWAP partitions are mirrored as RAID 1 on each internal drive, while the data partition consists of storage pools and volumes where all user data and installed packages are stored. For more information, see ![What are drive partitions?](https://kb.synology.com/en-nz/DSM/tutorial/What_are_drive_partitions)
+In a Synology NAS, all the internal hard drives are basically divided into three partitions, namely a **System Partition**, a **SWAP Partition**, and a **Data Partition**. The system and SWAP partitions are mirrored as RAID 1 on each internal drive, while the data partition consists of storage pools and volumes where all user data and installed packages are stored. For more information, see [What are drive partitions?](https://kb.synology.com/en-nz/DSM/tutorial/What_are_drive_partitions)
 
 ## The System Partition
 The **system partition** typically has a **storage capacity of 2.3 GiByte (up to DSM 6) or 7.9 GiByte (from DSM 7)** and contains the actual operating system, i.e. the DiskStation Manager, all user, system and network settings as well as the system logs. Immediately after initial or reinstallation, depending on the total storage capacity, **about 25 to about 65 percent of the available space is used**. The remaining free space is usually sufficient for DSM to operate properly. 
@@ -28,7 +28,7 @@ A classic example would be an overfilled home directory of the superuser root, s
 
 As is often the case, there is no universal solution, only tips and hints to make the search easier. The first step should always be to display the contents of the system partition, and then work your way through the directory jungle from top to bottom, starting with the directory that takes up the most disk space, until you have found the culprit(s).
 
-For all further steps, it is necessary to log in to the Synology NAS console as root via a terminal program using SSH. Synology describes how to do this in the instructions ![How can I sign in to DSM/SRM with root privilege via SSH?](https://kb.synology.com/en-id/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet) 
+For all further steps, it is necessary to log in to the Synology NAS console as root via a terminal program using SSH. Synology describes how to do this in the instructions [How can I sign in to DSM/SRM with root privilege via SSH?](https://kb.synology.com/en-id/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet) 
 
 #### _Note: Text in uppercase letters within square brackets serves as a placeholder and must be replaced with your own text, while mixed text consisting of uppercase and lowercase letters, numbers, and special characters within square brackets can be used optionally. In any case, the square brackets must be removed when replacing placeholders or using an option._
 
@@ -37,7 +37,7 @@ The `df` program displays the size, used and free space of all mounted partition
 
 - _**Syntax:** df [OPTION] [FILE]_
 
-   **_Options used for the df program (more options ![see manpage](https://manpages.debian.org/bookworm/coreutils/df.1.en.html))_**
+   **_Options used for the df program (more options [see manpage](https://manpages.debian.org/bookworm/coreutils/df.1.en.html))_**
 
    - **-h, --human-readable** (Specifies the storage capacity in a binary format in powers of 1024, which is easier for humans to read.)
       ```
@@ -104,7 +104,7 @@ The `du` program displays the used disk space of files or, if a directory is spe
 
 - _**Syntax:** du [OPTION] [FILE]_
 
-   _**Options used for the program `du` (more options ![see manpage](https://manpages.debian.org/bookworm/coreutils/du.1.en.html))**_
+   _**Options used for the program `du` (more options [see manpage](https://manpages.debian.org/bookworm/coreutils/du.1.en.html))**_
    - **-x, --one-file-system** (Directories on other file systems will be skipped.)
    - **-h, --human-readable** (Specifies the storage capacity in a binary format in powers of 1024, which is easier for humans to read).
    - **--si** (Specifies the storage capacity in a metric format in powers of 1000, which is easier for humans to read).
@@ -120,7 +120,7 @@ Before the actual execution of the `du` command, the memory allocation of the ou
 
 - _**Syntax: sort [OPTION] [FILE]_
 
-    _**Options used for the sort program (more options ![see manpage](https://manpages.debian.org/bookworm/coreutils/sort.1.en.html))**_
+    _**Options used for the sort program (more options [see manpage](https://manpages.debian.org/bookworm/coreutils/sort.1.en.html))**_
     - **-h, --human-numeric-sort** (prints the file size in a more readable format)
     - **-r, --reverse** (sort in reverse order)
 
@@ -185,7 +185,7 @@ du -x -h -d 1 /root | sort -r -h
 To get deeper into the directory structure, you could add the `/root/.vscode-server` directory to the command chain and run it again until you have located the culprit. In this case, since the name of the directory already tells me that it is stored application data of the Visual Studio Code program that logs in to my Synology NAS as root via an SSH connection, I will stop the search at this point and delete the folder completely in the next step to get my DSM working again. Alternatively, I can move individual files or the whole directory to an internal or external volume if I am not sure if I will need the data again.
 
 ## The `mv` program (move)
-The `mv` program is usually used to move files or entire directories. However, `mv` can also be used to rename files and directories, which will not be discussed here. In addition, no further options are needed in this example, so only the corresponding ![manpage](https://manpages.debian.org/bookworm/coreutils/mv.1.en.html) of `mv` is referred to here. 
+The `mv` program is usually used to move files or entire directories. However, `mv` can also be used to rename files and directories, which will not be discussed here. In addition, no further options are needed in this example, so only the corresponding [manpage](https://manpages.debian.org/bookworm/coreutils/mv.1.en.html) of `mv` is referred to here. 
 
 - _**Syntax:** mv [SOURCE] [TARGET]_
 
@@ -202,7 +202,7 @@ The `rm` program deletes files or entire directories on the console without goin
 
 - _**Syntax:** rm [OPTION] [FILE OR DIRECTORY]_
 
-     Options used for the rm program (more options ![see manpage](https://manpages.debian.org/bookworm/coreutils/rm.1.en.html))**_
+     _**Options used for the rm program (more options [see manpage](https://manpages.debian.org/bookworm/coreutils/rm.1.en.html))**_
      - **-r, --recursive** (Delete directories and their contents recursively)
      - **-f , --force** (no prompt when deleting) 
 
