@@ -1,7 +1,7 @@
 English | [Deutsch](README.md) | [HowTo's: Table of contents](https://github.com/toafez/Tutorials/blob/main/README_en.md)
 
 ## What is this about?
-The following guide describes how to analyse and clean up a cluttered **System Partition** on a **Synology NAS** to restore proper operation of the DSM.
+The following guide describes how to analyse and clean up a overfilled **System Partition** on a **Synology NAS** to restore proper operation of the DSM.
 
 ## Introduction
 Physical data storage devices such as hard disk drives (HDD), solid state drives (SSD), NVM Express (NVMe), etc., commonly referred to as hard disk drives, usually have one or more partitions for serving and storing data. 
