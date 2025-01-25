@@ -19,7 +19,7 @@ Sometimes, however, data ends up on the system partition that does not belong th
 
 Up to a certain point, this does not affect the system stability of the DSM. However, once the amount of storage used reaches a certain critical mass, which is somewhere between 80 and 100% of the available storage capacity, the DSM will slowly begin to stumble and start to fail. For example, you will no longer be able to log in to the DSM, you will no longer be able to perform system or package updates, or you will no longer be able to run packages. You will often see error messages like
 
-_**This operation cannot be performed. The network connection may be unstable or the system may be busy. Please try again later **_
+_**This operation cannot be performed. The network connection may be unstable or the system may be busy. Please try again later**_
 
 ## Analyzing the system partition 
 Unfortunately, it is not always obvious what is causing an overcrowded system partition, so part of the solution to such problems may be to understand what actions were previously performed, what tasks were completed, and what changes or adjustments were made. This will make it easier to find possible culprits within the system partition.
@@ -99,7 +99,7 @@ The `df` program displays the size, used and free space of all mounted partition
   .
   ```
 
-## The `du` program (**d**disk **u**use) 
+## The `du` program (**d**isk **u**se) 
 The `du` program displays the used disk space of files or, if a directory is specified, recursively the used disk space of all files contained in it. Other options are available to customize the output and improve readability.
 
 - _**Syntax:** du [OPTION] [FILE]_
@@ -129,7 +129,7 @@ Before the actual execution of the `du` command, the memory allocation of the ou
    sort -r -h
    ```
 
-## Combined output from `du` and `sort 
+## Combined output from `du` and `sort`
 The output of the command `du -x -h -d 1 /` described above can now be passed to the command `sort -r -h` via a so-called pipe `|` to sort the memory allocation in descending order. The commands are combined in one line and executed together.
 
 - _**Syntax:** du [OPTION] [FILE] **|** sort [OPTION] [FILE]_
