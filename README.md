@@ -9,7 +9,7 @@ Die folgende Anleitung beschreibt, wie man eine überfüllte **Systempartition**
 ## Einleitung
 Physikalische Datenspeicher wie Festplatten (HDD), Solid State Drives (SSD), NVM Express (NVMe) usw., die allgemein als Laufwerke bezeichnet werden, verfügen in der Regel über eine oder mehrere Partitionen für die Bereitstellung und Speicherung von Daten. 
 
-Bei einem Synology NAS sind alle internen Laufwerke grundsätzlich in drei Partitionen unterteilt und zwar in eine **Systempartition**, eine **SWAP-Partition** und eine **Datenpartition**. Die Systempartition und die SWAP-Partition werden dabei als RAID 1 auf jedem internen Laufwerk gespiegelt, während die Datenpartition aus Speicherpools und Volumes besteht, auf denen alle Benutzerdaten und installierte Pakete gespeichert werden. Weitere Informationen siehe ![Was sind Laufwerkspartitionen?](https://kb.synology.com/de-de/DSM/tutorial/What_are_drive_partitions)
+Bei einem Synology NAS sind alle internen Laufwerke grundsätzlich in drei Partitionen unterteilt und zwar in eine **Systempartition**, eine **SWAP-Partition** und eine **Datenpartition**. Die Systempartition und die SWAP-Partition werden dabei als RAID 1 auf jedem internen Laufwerk gespiegelt, während die Datenpartition aus Speicherpools und Volumes besteht, auf denen alle Benutzerdaten und installierte Pakete gespeichert werden. Weitere Informationen siehe [Was sind Laufwerkspartitionen?](https://kb.synology.com/de-de/DSM/tutorial/What_are_drive_partitions)
 
 ## Die Systempartition
 Die **Systempartition** verfügt in der Regel über eine **Speicherkapazität von 2,3 GiByte (bis DSM 6) oder 7,9 GiByte (ab DSM 7)** und enthält das eigentliche Betriebssystem, also den DiskStation Manager, alle Benutzer-, System- und Netzwerkeinstellungen sowie die Systemprotokolle. Unmittelbar nach der Erst- oder Neuinstallation sind je nach Gesamtspeicherkapazität **ca. 25 bis ca. 65 Prozent des verfügbaren Speicherplatzes belegt**. Der verbleibende freie Speicherplatz ist in der Regel völlig ausreichend, um einen störungsfreien Betrieb des DSM zu gewährleisten. 
@@ -28,7 +28,7 @@ Ein klassisches Beispiel wäre ein überfülltes Homeverzeichnis des Superuser r
 
 Wie so oft gibt es auch hier keine allgemeingültige Lösung, sondern nur Tipps und Hinweise, die die Suche erleichtern können. Der erste Schritt sollte daher immer sein, sich den Inhalt der Systempartition anzeigen zu lassen und sich dann von oben nach unten, beginnend mit dem Verzeichnis, das den meisten Speicherplatz belegt, durch den Verzeichnisdschungel zu arbeiten, bis man den oder die Übeltäter gefunden hat.
 
-Für alle weiteren Schritte ist es notwendig, sich über ein Terminalprogramm per SSH als root auf der Konsole des Synology NAS einzuloggen. Wie das geht, beschreibt Synology u.a. in der Anleitung ![Wie kann ich mich über SSH mit Root-Berechtigung bei DSM/SRM anmelden?](https://kb.synology.com/de-de/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet) 
+Für alle weiteren Schritte ist es notwendig, sich über ein Terminalprogramm per SSH als root auf der Konsole des Synology NAS einzuloggen. Wie das geht, beschreibt Synology u.a. in der Anleitung [Wie kann ich mich über SSH mit Root-Berechtigung bei DSM/SRM anmelden?](https://kb.synology.com/de-de/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet) 
 
 #### _Hinweis: Text in Großbuchstaben innerhalb eckiger Klammern dient als Platzhalter und muss durch eigene Angaben ersetzt werden, während gemischter Text aus Groß- und Kleinbuchstaben, Ziffern und Sonderzeichen innerhalb eckiger Klammern optional verwendet werden kann. In jedem Fall müssen die eckigen Klammern beim Ersetzen von Platzhaltern oder bei der Verwendung einer Option entfernt werden._
 
@@ -37,7 +37,7 @@ Das Programm `df` zeigt die Größe, den belegten und den freien Speicherplatz a
 
 - _**Syntax:** df [OPTION] [DATEI]_
 
-   **_Verwendete Optionen für das Programm df (weitere Optionen ![siehe Manpage](https://manpages.debian.org/bookworm/manpages-de/df.1.de.html))_**
+   **_Verwendete Optionen für das Programm df (weitere Optionen [siehe Manpage](https://manpages.debian.org/bookworm/manpages-de/df.1.de.html))_**
 
    - **-h, --human-readable** (Gibt die Speicherkapazität in einem binären Format in Potenzen von 1024 an, das für den Menschen leichter zu lesen ist.)
       ```
@@ -104,7 +104,7 @@ Das Programm `du` zeigt den belegten Speicherplatz von Dateien, oder bei Angabe 
 
 - _**Syntax:** du [OPTION] [DATEI]_
 
-   _**Verwendete Optionen für das Programm `du` (weitere Optionen ![siehe Manpage](https://manpages.debian.org/bookworm/manpages-de/du.1.de.html))**_
+   _**Verwendete Optionen für das Programm `du` (weitere Optionen [siehe Manpage](https://manpages.debian.org/bookworm/manpages-de/du.1.de.html))**_
    - **-x, --one-file-system** (Verzeichnisse auf anderen Dateisystemen werden übersprungen.)
    - **-h, --human-readable** (Gibt die Speicherkapazität in einem binären Format in Potenzen von 1024 an, das für den Menschen leichter zu lesen ist.)
    - **--si** (Gibt die Speicherkapazität in einem metrischen Format in Potenzen von 1000 an, das für den Menschen leichter zu lesen ist.)
@@ -120,7 +120,7 @@ Vor der eigentlichen Ausführung des `du` Befehs sollte zur besseren Übersicht 
 
 - _**Syntax:** sort [OPTION] [DATEI]_
 
-    _**Verwendete Optionen für das Programm sort (weitere Optionen ![siehe Manpage](https://manpages.debian.org/bookworm/manpages-de/sort.1.de.html))**_
+    _**Verwendete Optionen für das Programm sort (weitere Optionen [siehe Manpage](https://manpages.debian.org/bookworm/manpages-de/sort.1.de.html))**_
     - **-h, --human-numeric-sort** (Gibt die Dateigröße in einem besser lesbaren Format aus)
     - **-r, --reverse** (Sortierung in umgekehrter Reihenfolge)
 
@@ -185,7 +185,7 @@ du -x -h -d 1 /root | sort -r -h
 Um noch tiefer in die Verzeichnisstruktur einzudringen, könnte man die Befehlskette wiederum um das Verzeichnis `/root/.vscode-server` erweitern und erneut ausführen, bis man irgendwann lokalisiert hat, wo sich der Übeltäter verbirgt. Da mir in diesem Fall bereits der Name des Verzeichnisses verrät, dass es sich um gespeicherte Anwendungsdaten des Programms Visual Studio Code handelt, das sich über eine SSH-Verbindung als root auf meiner Synology NAS anmeldet, beende ich die Suche an dieser Stelle und werde den Ordner im nächsten Schritt komplett löschen, um meinen DSM wieder funktionsfähig zu bekommen. Alternativ könnte ich einzelne Dateien  oder das gesamte Verzeichnis auch auf ein internes oder externes Volume verschieben, wenn ich nicht sicher bin, ob ich die Daten noch einmal benötige.
 
 ## Das Programm `mv` (move)
-Das Programm `mv` wird normalerweise verwendet, um Dateien oder ganze Verzeichnisse zu verschieben. Mit `mv` können aber auch Dateien und Verzeichnisse umbenannt werden, worauf hier nicht weiter eingegangen wird. Außerdem werden in diesem Beispiel keine weiteren Optionen benötigt, so dass an dieser Stelle nur auf die entsprechende ![Manpage](https://manpages.debian.org/bookworm/manpages-de/mv.1.de.html) von `mv` verwiesen wird. 
+Das Programm `mv` wird normalerweise verwendet, um Dateien oder ganze Verzeichnisse zu verschieben. Mit `mv` können aber auch Dateien und Verzeichnisse umbenannt werden, worauf hier nicht weiter eingegangen wird. Außerdem werden in diesem Beispiel keine weiteren Optionen benötigt, so dass an dieser Stelle nur auf die entsprechende [Manpage](https://manpages.debian.org/bookworm/manpages-de/mv.1.de.html) von `mv` verwiesen wird. 
 
 - _**Syntax:** mv [QUELLE] [ZIEL]_
 
@@ -202,7 +202,7 @@ Das Programm `rm` löscht auf der Konsole Dateien oder ganze Verzeichnisse ohne 
 
 - _**Syntax:** rm [OPTION] [DATEI ODER VERZEICHNIS]_
 
-     _**Verwendete Optionen für das Programm rm (weitere Optionen ![siehe Manpage](https://manpages.debian.org/bookworm/manpages-de/rm.1.de.html))**_
+     _**Verwendete Optionen für das Programm rm (weitere Optionen [siehe Manpage](https://manpages.debian.org/bookworm/manpages-de/rm.1.de.html))**_
      - **-r, --recursive** (Verzeichnisse und deren Inhalte rekursiv löschen)
      - **-f , --force** (Keine Nachfrage beim Löschen) 
 
