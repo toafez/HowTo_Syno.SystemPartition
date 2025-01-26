@@ -209,7 +209,7 @@ Das Programm `rm` löscht auf der Konsole Dateien oder ganze Verzeichnisse ohne 
   Obwohl der Befehl `rm` immer mit Vorsicht zu genießen ist, kommt man oft nicht umhin, ihn zu benutzen. In diesem Beispiel wird das Unterverzeichnis `.vscode-server` rekursiv aus dem Verzeichnis `/root` gelöscht, d.h. mit allem, was sich in diesem Verzeichnis befindet.
 
    ```
-   rm /root/.vscode-server
+   rm -r -f /root/.vscode-server
    ```
 
 ## Abschließende Worte
