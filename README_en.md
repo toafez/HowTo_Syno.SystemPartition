@@ -209,7 +209,7 @@ The `rm` program deletes files or entire directories on the console without goin
   Although the `rm` command should always be used with caution, it is often necessary to use it. In this example, the `.vscode-server` subdirectory of the `/root` directory will be deleted recursively, along with everything in that directory.
 
    ```
-   rm /root/.vscode-server
+   rm -r -f /root/.vscode-server
    ```
 
 ## Final words
